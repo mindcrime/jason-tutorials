@@ -3,8 +3,7 @@ package mbean;
 import java.util.logging.Logger;
 
 public class AgentStats implements AgentStatsMBean
-{
-	
+{	
 	private Logger logger = Logger.getLogger( AgentStats.class.getName() );
 	
 	private int currentCycle;

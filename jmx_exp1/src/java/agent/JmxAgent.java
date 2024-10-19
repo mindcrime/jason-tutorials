@@ -1,7 +1,6 @@
 package agent;
 
 import java.lang.management.ManagementFactory;
-import java.util.Iterator;
 import java.util.Queue;
 import java.util.logging.Logger;
 
@@ -122,8 +121,6 @@ public class JmxAgent extends Agent
 		{
 			e.printStackTrace();
 		}
-		
-		
 		
 		return super.selectIntention( intentions );
 	}

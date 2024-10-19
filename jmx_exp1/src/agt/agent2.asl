@@ -1,3 +1,3 @@
 started.
 
-+started <- .print( "Hello, Agent12" ).
++started <- .print( "Hello, Agent2" ).

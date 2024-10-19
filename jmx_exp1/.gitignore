@@ -1,0 +1,9 @@
+bin/
+build/
+target/
+*.*~
+*~
+.*~
+*.log
+*.class
+*.jar
