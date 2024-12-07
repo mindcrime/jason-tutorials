@@ -1,0 +1,62 @@
+/*
+   Project bdi_programming2
+
+   Gradle build file for Jason Application
+   October 12, 2024 - 19:46:28
+*/
+
+defaultTasks 'run'
+
+apply plugin: 'java'
+
+// set version of group for your project
+//version '1.0'
+//group   'io.github.jason-lang'
+
+java {
+   toolchain {
+     languageVersion = JavaLanguageVersion.of(17)
+   }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master" }
+    maven { url "https://jade.tilab.com/maven/" }
+}
+
+dependencies {
+    implementation 'io.github.jason-lang:jason-interpreter:3.2.0'
+
+    // to use locally installed jars:
+    implementation fileTree(dir: 'lib', include: '*.jar')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+            srcDir 'src/agt'
+        }
+    }
+}
+
+task run (type: JavaExec, dependsOn: 'classes') {
+    description 'runs the application'
+    mainClass = 'jason.infra.local.RunLocalMAS'
+    args = ['bdi_programming2.mas2j']
+	// options:
+	//     args = ['plan_failure1.mas2j', '--debug', '--no-net', '--empty-mas']
+	//     args = ['plan_failure1.mas2j', '--log-conf', 'l.p'] // to use file l.p to configure logging
+    classpath sourceSets.main.runtimeClasspath
+}
+
+task runJade (type: JavaExec, dependsOn: 'classes') {
+    description 'runs the application with Jade infrastructure'
+    mainClass = 'jason.infra.jade.RunJadeMAS'
+    args = [ 'bdi_programming2.mas2j' ]
+    classpath sourceSets.main.runtimeClasspath
+}

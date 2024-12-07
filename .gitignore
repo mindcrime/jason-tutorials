@@ -8,3 +8,6 @@ target/
 *.class
 *.jar
 .gradle
+.project
+.classpath
+.settings/
