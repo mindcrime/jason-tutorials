@@ -1,0 +1,8 @@
+
+MAS spring_jason2 {
+
+    environment: org.fogbeam.demo.MyEnvironment
+    agents: bob agentArchClass org.fogbeam.demo.MyAgentArch agentClass org.fogbeam.demo.MyAgent beliefBaseClass org.fogbeam.demo.MyBeliefBase2();
+
+    aslSourcePath: "src/agt";
+}
